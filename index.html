@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="chrome">
+    <title>环境监测系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="main-layer">
+        <header id="main-menu">
+
+            <div @mouseover="show_import=true" @mouseout="show_import=false">
+                <div class="menu-title">导入工具</div>
+                <div class="menu-list" v-show="show_import">
+                    <div>导入CSV文件</div>
+                    <div>导入Excel文件</div>
+                    <div>导入数据库文件</div>
+                </div>
+            </div>
+
+            <div @mouseover="show_tools=true" @mouseout="show_tools=false">
+                <div class="menu-title">工具</div>
+                <div class="menu-list" v-show="show_tools">
+                    <div>设备监听</div>
+                    <div>网络通讯</div>
+                    <div @mouseover="show_listen_address=true" @mouseout="show_listen_address=false">
+                        <div class="sub-title">监听地址 <div class="arrow">></div></div>
+                        <div class="sub-list" v-show="show_listen_address">
+                            <div>监听地址I</div>
+                            <div>监听地址II</div>
+                            <div>监听地址III</div>
+                        </div>
+                    </div>
+                    <div>导出结果</div>
+                </div>
+            </div>
+
+            <div @mouseover="show_control=true" @mouseout="show_control=false">
+                <div class="menu-title">无人机控制</div>
+                <div class="menu-list" v-show="show_control"> 
+                    <div>无</div>
+                </div>
+            </div>
+
+            <div @mouseover="show_settings=true" @mouseout="show_settings=false">
+                <div class="menu-title">设置</div>
+                <div class="menu-list" v-show="show_settings"> 
+                    <div>设置时间</div>
+                    <div>历史数据</div>
+                    <div @mouseover="show_set_axis=true" @mouseout="show_set_axis=false">
+                        <div class="sub-title">设置坐标轴 <div class="arrow">></div></div>
+                        <div class="sub-list" v-show="show_set_axis">
+                            <div>X 轴</div>
+                            <div>Y 轴</div>
+                        </div>
+                    </div>
+                    <div>设置延时时间</div>
+                </div>
+            </div>
+
+            <div @mouseover="show_help=true" @mouseout="show_help=false">
+                <div class="menu-title">帮助</div>
+                <div class="menu-list" v-show="show_help"> 
+                    <div>使用说明</div>
+                    <div>版本信息</div>
+                    <div>版本更新</div>
+                </div>
+            </div>
+
+            <div @mouseover="show_about=true" @mouseout="show_about=false">
+                <div class="menu-title">关于作者</div>
+                <div class="menu-list" v-show="show_about"> 
+                    <div>关于作者</div>
+                    <div>关于团队</div>
+                    <div>联系作者</div>
+                </div>
+            </div>
+
+        </header>
+
+        <main>
+            <div id="allmap"></div>
+            <div id="img">
+                <img src="1.png" alt="检测图">
+                <img src="2.png" alt="预测图">
+            </div>
+        </main>
+
+        
+    </section>
+    <script defer src="vue.js"></script>
+    <script defer src="index.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VcnirGygZYHWRhUz9XrtRPyFqCNn2uiH"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 环境监测系统 </title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <a href="#" id="side-menu-btn" @click="open_menu">菜单</a>
+        <span id="title">环境监测系统</span>
+    </header>
+    
+    <nav>
+
+        <div id="nav-shadow-layer" v-show="opened" @click="close_menu"></div>
+
+        <div id="nav-side-menu" :class="{ opened: opened }"> 
+            <div id="nav-header">
+                <span id="nav-return" @click="click_return">返回</span>
+            </div>
+            <div id="nav-main">
+                <ul v-show="show_which === 'top'">
+                    <li @click="show_import">导入工具</li>
+                    <li @click="show_tools">工具</li>
+                    <li @click="show_control">无人机控制</li>
+                    <li @click="show_settings">设置</li>
+                    <li @click="show_help">帮助</li>
+                    <li @click="show_about">关于作者</li>
+                </ul>
+                
+                <ul v-show="show_which === 'import'">
+                    <li>导入CSV文件</li>
+                    <li>导入Excel文件</li>
+                    <li>导入数据库文件</li>
+                </ul>
+
+                <ul v-show="show_which === 'tools'">
+                    <li>设备监听</li>
+                    <li>网络通讯</li>
+                    <li @click="show_address">监听地址</li>
+                    <li>导出结果</li>
+                </ul>
+
+                <ul v-show="show_which === 'address'">
+                    <li>监听地址I</li>
+                    <li>监听地址II</li>
+                    <li>监听地址III</li>
+                </ul>
+
+                <ul v-show="show_which === 'control'">
+                    <li>无</li>
+                </ul>
+
+                <ul v-show="show_which === 'settings'">
+                    <li>设置时间</li>
+                    <li>历史数据</li>
+                    <li @click="show_axis">设置坐标</li>
+                    <li>设置延时时间</li>
+                </ul>
+
+                <ul v-show="show_which === 'axis'">
+                    <li>X 轴</li>
+                    <li>Y 轴</li>
+                </ul>
+
+                <ul v-show="show_which === 'help'">
+                    <li>使用说明</li>
+                    <li>版本信息</li>
+                    <li>版本更新</li>
+                </ul>
+
+                <ul v-show="show_which === 'about'">
+                    <li>关于作者</li>
+                    <li>关于团队</li>
+                    <li>联系作者</li>
+                </ul>
+
+            </div>
+        </div>
+
+    </nav>
+    
+    <main>
+        <div id="allmap"></div>
+        <div id="img">
+            <img src="1.png" alt="检测图">
+            <img src="2.png" alt="预测图">
+        </div>
+    </main>
+
+    <script src="vue.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VcnirGygZYHWRhUz9XrtRPyFqCNn2uiH"></script>
+    <script src="index.js"></script>
+</body>
+</html>

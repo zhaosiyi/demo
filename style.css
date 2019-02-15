@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+[v-show] { display: none; }
+
+#main-layer {
+    --menu-height: 34px;
+    position: fixed;
+    height: 100%; width: 100%;
+    background-color: #19232D;
+}
+
+#main-menu {
+    
+    --menu-font-size: 13px;
+    --menu-background-color: #32414B;
+    --hover-color: #007ACC;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    height: var(--menu-height);
+
+    font-size: var(--menu-font-size);  
+    color: #FFFFFF;
+    background-color: var(--menu-background-color);
+    box-shadow: 0 3px 5px black;
+    user-select: none;
+}
+
+.menu-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: var(--menu-height);
+    padding: 0 8px;
+    
+    cursor: default;
+    transition: background-color 0.3s;
+}
+
+#main-menu > div:hover, .menu-list > div:hover, .sub-list > div:hover {
+    background-color: var(--hover-color);
+    transition: background-color 0.3s;
+}
+
+.menu-list {
+    z-index: 10;
+    position: absolute;
+    top: var(--main-menu-height);
+    min-width: 80px;
+
+    background-color: #19232D;
+    box-shadow: 2px 2px 5px 1px black;
+}
+
+.menu-list > div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 20px;
+
+    transition: background-color 0.2s;
+    cursor: default;
+}
+
+.sub-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-list {
+    position: absolute;
+    min-width: 110px;
+    left: 100%; top: 0;
+    background-color: #19232D;
+    box-shadow: 2px 2px 5px 1px black;
+}
+
+.sub-list > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 20px;
+
+    transition: background-color 0.2s;
+    cursor: default;
+}
+
+.arrow {
+    position: absolute;
+    right: 5px;
+}
+
+main {
+    display: flex;
+    height: calc(100% - var(--menu-height));
+}
+
+#allmap {
+    width: 50%; height: 100%;
+}
+
+#img {
+    width: 50%;
+    height: 100%;
+}
+
+#img > * {
+    height: 50%;
+    width: 100%;
+}
